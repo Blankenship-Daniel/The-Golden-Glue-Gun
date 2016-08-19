@@ -30,7 +30,27 @@
  *****************************************************************************/
 body {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333; }
+  color: #333;
+  box-sizing: border-box; }
+
+section {
+  padding: 80px;
+  font-family: "Roboto Slab", serif; }
+
+.blue-300 {
+  background: #4FC3F7; }
+
+.blue-600 {
+  background: #039BE5; }
+
+.blue-900 {
+  background: #01579B; }
+
+.blue-grey-50 {
+  background: #ECEFF1; }
+
+.deep-orange-500 {
+  background: #FF5722; }
 
 /******************************************************************************
  * Layout
@@ -53,7 +73,7 @@ body {
  *  callouts, the sidebar sections, the products lists and so on.
  *****************************************************************************/
 app-header {
-  background: #FFECB3; }
+  background: #fff; }
 
 #main-title {
   padding-left: 20px; }
@@ -66,3 +86,9 @@ app-header {
 .main {
   margin-left: 20%;
   padding: 1.5em; }
+
+.blog-section {
+  min-height: 300px; }
+
+.bg-dark {
+  color: #fff; }
