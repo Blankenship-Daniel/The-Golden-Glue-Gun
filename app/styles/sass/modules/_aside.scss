@@ -1,0 +1,9 @@
+$aside-width: 20%;
+$aside-min-width: 200px;
+$aside-height: 100vh;
+
+.aside {
+  height: $aside-height;
+  min-width: $aside-min-width;
+  width: $aside-width;
+}
