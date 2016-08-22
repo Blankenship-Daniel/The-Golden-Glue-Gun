@@ -6,10 +6,10 @@ $content-font-family: 'Roboto Slab', serif;
 $site-background-color: #fafafa;
 $site-font-color: #333;
 
-// nav colors
-$app-header-background-color: #fff;
-
 // background colors
+
+$amber-50: #FFF8E1;
+$amber-500: #FFC107;
 
 $blue-300: #4FC3F7;
 $blue-600: #039BE5;
@@ -18,3 +18,8 @@ $blue-900: #01579B;
 $blue-grey-50: #ECEFF1;
 
 $deep-orange-500: #FF5722;
+
+$green-A100: #B9F6CA;
+
+// nav colors
+$app-header-background-color: $amber-500;
