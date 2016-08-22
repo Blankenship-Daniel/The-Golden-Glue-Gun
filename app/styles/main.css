@@ -37,6 +37,12 @@ section {
   padding: 80px;
   font-family: "Roboto Slab", serif; }
 
+.amber-50 {
+  background: #FFF8E1; }
+
+.amber-500 {
+  background: #FFC107; }
+
 .blue-300 {
   background: #4FC3F7; }
 
@@ -52,6 +58,9 @@ section {
 .deep-orange-500 {
   background: #FF5722; }
 
+.green-A100 {
+  background: #B9F6CA; }
+
 /******************************************************************************
  * Layout
  *
@@ -60,11 +69,19 @@ section {
  *
  * These rules are prefixed with lyt- for clarity.
  *****************************************************************************/
+.content {
+  width: 1280px;
+  margin: 0px auto; }
+
 .lyt-left {
   float: left; }
 
 .lyt-right {
   float: right; }
+
+@media screen and (max-width: 1280px) {
+  .content {
+    width: 100%; } }
 
 /******************************************************************************
  * Module
@@ -73,7 +90,7 @@ section {
  *  callouts, the sidebar sections, the products lists and so on.
  *****************************************************************************/
 app-header {
-  background: #fff; }
+  background: #FFC107; }
 
 #main-title {
   padding-left: 20px; }
