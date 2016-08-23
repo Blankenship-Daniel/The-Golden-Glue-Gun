@@ -20,15 +20,11 @@
         /* Just in case there are inline attributes */
         width: 100% !important;
         height: auto !important;
-        padding: 10px;
+        padding: 2px;
       }
 
-      @media (max-width: 1200px) {
-        #photos {
-          -moz-column-count: 4;
-          -webkit-column-count: 4;
-          column-count: 4;
-        }
+      #photos img:hover {
+        cursor: pointer;
       }
 
       @media (max-width: 1000px) {
@@ -39,15 +35,7 @@
         }
       }
 
-      @media (max-width: 800px) {
-        #photos {
-          -moz-column-count: 2;
-          -webkit-column-count: 2;
-          column-count: 2;
-        }
-      }
-
-      @media (max-width: 400px) {
+      @media (max-width: 600px) {
         #photos {
           -moz-column-count: 1;
           -webkit-column-count: 1;
@@ -56,19 +44,10 @@
       }
     </style>
 
-    <firebase-app
-      id="app"
-      name="the-golden-glue-gun"
-      auth-domain="the-golden-glue-gun.firebaseapp.com"
-      database-url="https://the-golden-glue-gun.firebaseio.com/"
-      api-key="AIzaSyApBp-EozE84eK1bj_0vgFfvuYNm0Y94WY">
+    <firebase-app id="app" name="the-golden-glue-gun" auth-domain="the-golden-glue-gun.firebaseapp.com" database-url="https://the-golden-glue-gun.firebaseio.com/" api-key="AIzaSyApBp-EozE84eK1bj_0vgFfvuYNm0Y94WY">
     </firebase-app>
 
-    <firebase-document
-        id="document"
-        app-name="the-golden-glue-gun"
-        path="/images"
-        data="{{ images }}">
+    <firebase-document id="document" app-name="the-golden-glue-gun" path="/images" data="{{ images }}">
     </firebase-document>
 
     <section id="photos">
@@ -86,16 +65,16 @@
         is: 'photo-list',
 
         _print: function(obj) {
-            console.log(JSON.stringify(obj));
+          console.log(JSON.stringify(obj));
         },
 
         _toArray: function(obj) {
-            return Object.keys(obj).map(function(key) {
-                return {
-                    name: key,
-                    value: obj[key]
-                };
-            });
+          return Object.keys(obj).map(function(key) {
+            return {
+              name: key,
+              value: obj[key]
+            };
+          });
         }
       });
     })();
