@@ -1,6 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/polymerfire/polymerfire.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
 
 <dom-module id="photo-list">
   <template>
@@ -20,10 +22,46 @@
         /* Just in case there are inline attributes */
         width: 100% !important;
         height: auto !important;
-        padding: 2px;
       }
 
-      #photos img:hover {
+      .photo-wrapper {
+        position: relative;
+        padding: 3px;
+      }
+
+      .photo-wrapper:hover {
+        padding: 10px;
+      }
+
+      .photo-wrapper:hover:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 193, 7, .7);
+        cursor: pointer;
+      }
+
+      .photo-wrapper:hover> .zoom-in-icon {
+        visibility: visible;
+      }
+
+      .zoom-in-icon {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        --iron-icon-fill-color: #fff;
+        --iron-icon-height: 80px;
+        --iron-icon-width: 80px;
+      }
+
+      .zoom-in-icon:hover {
         cursor: pointer;
       }
 
@@ -33,6 +71,10 @@
           -webkit-column-count: 3;
           column-count: 3;
         }
+        .zoom-in-icon {
+          --iron-icon-height: 60px;
+          --iron-icon-width: 60px;
+        }
       }
 
       @media (max-width: 600px) {
@@ -40,6 +82,10 @@
           -moz-column-count: 1;
           -webkit-column-count: 1;
           column-count: 1;
+        }
+        .zoom-in-icon {
+          --iron-icon-height: 40px;
+          --iron-icon-width: 40px;
         }
       }
     </style>
@@ -52,7 +98,10 @@
 
     <section id="photos">
       <template is="dom-repeat" items="{{ images }}">
-        <img src="../../images/{{ item.src }}" alt="{{ item.alt }}">
+        <div class="photo-wrapper">
+          <iron-icon class="zoom-in-icon" icon="zoom-in"></iron-icon>
+          <img src="../../images/{{ item.src }}" alt="{{ item.alt }}">
+        </div>
       </template>
     </section>
 
@@ -80,3 +129,8 @@
     })();
   </script>
 </dom-module>
+</script>
+</dom-module>
+</script>
+</dom-module>
+dule>
