@@ -64,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <style is="custom-style">
     app-header {
       --app-header-background-front-layer: {
-        background-image: url('images/orange_shag.jpg');
+        background-image: url('images/world.jpg');
         background-position: center;
       }
     }
@@ -81,7 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-toolbar>
         <img width="50" src="images/glue-gun.png">
         <div id="main-title" main-title>The Golden Glue Gun</div>
-        <iron-icon icon="search"></iron-icon>
+        <search-bar></search-bar>
       </app-toolbar>
       <app-toolbar></app-toolbar>
       <app-toolbar></app-toolbar>
@@ -107,5 +107,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </div>
 
 </body>
+<script>
+  // Hides the search bar when clicking anywhere outside search-bar.
+  var searchBar = document.querySelector('search-bar');
+
+  document.addEventListener('click', function(e) {
+    if (searchBar.show) {
+      searchBar.toggleSearch(e);
+    }
+  });
+</script>
 
 </html>
