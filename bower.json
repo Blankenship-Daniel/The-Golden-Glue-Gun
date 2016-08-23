@@ -12,7 +12,7 @@
     "bootstrap": "^3.3.7",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.2.1",
     "jquery": "^3.1.0",
-    "firebase-element": "GoogleWebComponents/firebase-element#^1.0.15"
+    "polymerfire": "firebase/polymerfire#^0.9.5"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

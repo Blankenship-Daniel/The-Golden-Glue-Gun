@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/polymerfire/polymerfire.html">
 
 <dom-module id="photo-list">
   <template>
@@ -55,11 +56,23 @@
       }
     </style>
 
-    <iron-ajax auto url="../../storage/storage.json" handle-as="json" last-response="{{ json }}">
-    </iron-ajax>
+    <firebase-app
+      id="app"
+      name="the-golden-glue-gun"
+      auth-domain="the-golden-glue-gun.firebaseapp.com"
+      database-url="https://the-golden-glue-gun.firebaseio.com/"
+      api-key="AIzaSyApBp-EozE84eK1bj_0vgFfvuYNm0Y94WY">
+    </firebase-app>
+
+    <firebase-document
+        id="document"
+        app-name="the-golden-glue-gun"
+        path="/images"
+        data="{{ images }}">
+    </firebase-document>
 
     <section id="photos">
-      <template is="dom-repeat" items="{{ json.images }}">
+      <template is="dom-repeat" items="{{ images }}">
         <img src="../../images/{{ item.src }}" alt="{{ item.alt }}">
       </template>
     </section>
@@ -70,7 +83,20 @@
       'use strict';
 
       Polymer({
-        is: 'photo-list'
+        is: 'photo-list',
+
+        _print: function(obj) {
+            console.log(JSON.stringify(obj));
+        },
+
+        _toArray: function(obj) {
+            return Object.keys(obj).map(function(key) {
+                return {
+                    name: key,
+                    value: obj[key]
+                };
+            });
+        }
       });
     })();
   </script>
